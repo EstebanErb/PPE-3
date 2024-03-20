@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Candidature</title>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="poste.css">
+</head>
+<body>
+    <div class="container">
+    <h2>Candidature</h2>
+    <form action="traitement.php" method="post" enctype="multipart/form-data">
+        <label for="nom">Nom :</label></br>
+        <input type="text" id="nom" name="nom" required><br><br>
+
+        <label for="prenom">Prénom :</label></br>
+        <input type="text" id="prenom" name="prenom" required><br><br>
+
+        <label for="email">Adresse e-mail :</label></br>
+        <input type="email" id="email" name="email" required><br><br>
+
+        <label for="numero">Numéro de téléphone :</label></br>
+        <input type="tel" id="numero" name="numero" required><br><br>
+
+        <label for="numeroderue">Adresse :</label></br>
+        <input type="text" id="numeroderue" name="numeroderue" required><br><br>
+
+        <label for="code">Code postal :</label></br>
+        <input type="text" id="code" name="code" required><br><br>
+
+        <label for="ville">Ville :</label></br>
+        <input type="text" id="ville" name="ville" required><br><br>
+
+        <label for="cv">CV :</label></br>
+        <input type="file" accept=".pdf" id="cv" name="cv"required><br><br>
+
+        <label for="lettre">Lettre de motivation :</label></br>
+        <input type="file" accept=".pdf" id="lettre" name="lettre"required><br><br>
+
+        <input type="submit" value="S'inscrire">
+    </form>
+</div>
+</body>
+</html>
