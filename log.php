@@ -1,7 +1,7 @@
 <?php
-$servername = "192.168.1.56";
-$username = "bddquery";
-$password = "EET";
+$servername = "localhost";
+$username = "root";
+$password = "";
 $dbname = "ppe3";
 
 try {

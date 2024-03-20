@@ -1,7 +1,7 @@
 <?php
-$servername = "192.168.1.56";
-$username = "bddquery";
-$password = "EET";
+$servername = "localhost";
+$username = "root";
+$password = "";
 $dbname = "ppe3";
 
 try {
@@ -20,6 +20,15 @@ if (isset($_POST['id'])) {
         ':id' => $supr
 
     ]);
+
+    //envoie d'un mail ( ne marche pas )
+    $expediteur = "admin@domain.com";
+    date("D, j M Y H:i:s"); //date
+    $entete = "From: $expediteurn"; // expéditeur
+    $entete .= "Cc: n";
+    $entete .= "Reply-To: $expediteur n";
+    $entete .= "Date: ". date("D, j M Y H:i:s");
+    mail( "esteban.erb@lycee-pardailhan.fr", "Communication", "test de mail.", $entete);
 
     header('Location: Admin.php');
 }
