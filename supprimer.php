@@ -22,7 +22,7 @@ if (isset($_POST['id'])) {
     ]);
 
     //envoie d'un mail ( ne marche pas )
-    $expediteur = "admin@domain.com";
+    $expediteur = "esteban.erb@lycee-pardailhan.fr";
     date("D, j M Y H:i:s"); //date
     $entete = "From: $expediteurn"; // expéditeur
     $entete .= "Cc: n";

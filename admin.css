@@ -67,6 +67,19 @@ body{
   cursor: pointer;
 }
 
+.button2 {
+  display: inline-block;
+  width: 30px;
+  height: 30px;
+  margin: 5px 5px;
+  background-color: green;
+  color: green;
+  text-decoration: none;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
 @media screen and (max-width: 1024px) {
   body {
     background: url('FondAdmin.jpg') no-repeat;

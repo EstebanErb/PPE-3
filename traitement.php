@@ -11,7 +11,7 @@ try {
     echo $error;
 }
 
-if (isset($_POST['nom'])) {
+if (isset($_POST["nom"])) {
 
     $uploadcv = '.\CV\\';
     $uploadfile = $uploadcv . basename($_FILES['cv']['name']);
@@ -28,9 +28,10 @@ if (isset($_POST['nom'])) {
     $ville = $_POST['ville'];
     move_uploaded_file($_FILES['cv']['tmp_name'], $uploadfile);
     move_uploaded_file($_FILES['lettre']['tmp_name'], $uploadfileL);
+    $annonce = $_POST['IdAnnonce'];
     
-    $stmt = $pdo->prepare("INSERT INTO candidat (nom, prenom, mail, numTel, numEtRue, CP, ville, urlCV, urlLettre)
-    VALUES (:nom, :prenom, :mail, :numTel, :numEtRue, :CP, :ville, :urlCV, :urlLettre)");
+    $stmt = $pdo->prepare("INSERT INTO candidat (nom, prenom, mail, numTel, numEtRue, CP, ville, urlCV, urlLettre , idAnnonce)
+    VALUES (:nom, :prenom, :mail, :numTel, :numEtRue, :CP, :ville, :urlCV, :urlLettre, :annonce)");
 
 $return = $stmt->execute([
     ':nom' => $nom,
@@ -41,7 +42,8 @@ $return = $stmt->execute([
     ':CP' => $code,
     ':ville' => $ville,
     ':urlCV' => $uploadfile,
-    ':urlLettre' => $uploadfileL
+    ':urlLettre' => $uploadfileL,
+    ':annonce' => $annonce
 ]); 
 
 $_SESSION["nom"] = $nom;

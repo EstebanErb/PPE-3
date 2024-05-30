@@ -1,7 +1,8 @@
 <?php
 include "traitement.php";
 
-$stmt = $pdo->prepare("select * from  candidat");
+$stmt = $pdo->prepare("select * from  candidat
+                        join annonce on candidat.idAnnonce = annonce.IdAnnonce order by id");
 if ($stmt->execute()) {
     $candidat = $stmt->fetchAll();
 }
@@ -41,6 +42,8 @@ if ($stmt->execute()) {
                     <th>CV</th>
                     <th>Lettre de Motivation</th>
                     <th>Refus</th>
+                    <th>Accepter</th>
+                    <th>Annonce</th>
                 </tr>
 
                 <?php foreach ($candidat as $d) { ?>
@@ -76,6 +79,14 @@ if ($stmt->execute()) {
                             <form action="supprimer.php" method="post">
                                 <input type="submit" id="id" name="id" value="<?php echo $d["id"] ?>" class="button1" />
                             </form>
+                        </th>
+                        <th>
+                            <form action="Accepter.php" method="post">
+                                <input type="submit" id="id" name="id" value="<?php echo $d["id"] ?>" class="button2" />
+                            </form>
+                        </th>
+                        <th>
+                            <?php echo utf8_encode($d["NomAnnonce"]) ?>
                         </th>
                     </tr>
                 <?php } ?>
