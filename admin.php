@@ -81,7 +81,7 @@ if ($stmt->execute()) {
                             </form>
                         </th>
                         <th>
-                            <form action="Accepter.php" method="post">
+                            <form action="" method="post">
                                 <input type="submit" id="id" name="id" value="<?php echo $d["id"] ?>" class="button2" />
                             </form>
                         </th>
