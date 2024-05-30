@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : 127.0.0.1:3306
--- Généré le : mer. 18 oct. 2023 à 12:10
+-- Généré le : jeu. 30 mai 2024 à 13:24
 -- Version du serveur :  5.7.31
 -- Version de PHP : 7.3.21
 
@@ -24,6 +24,29 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
+-- Structure de la table `annonce`
+--
+
+DROP TABLE IF EXISTS `annonce`;
+CREATE TABLE IF NOT EXISTS `annonce` (
+  `IdAnnonce` int(11) NOT NULL,
+  `NomAnnonce` varchar(255) NOT NULL,
+  `Description` varchar(255) NOT NULL,
+  PRIMARY KEY (`IdAnnonce`)
+) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+
+--
+-- Déchargement des données de la table `annonce`
+--
+
+INSERT INTO `annonce` (`IdAnnonce`, `NomAnnonce`, `Description`) VALUES
+(1, 'Agent d\'entretient', 'Recherche d\'agent d\'entretient'),
+(2, 'Développeur', 'Recherche de Développeur'),
+(3, 'Cantinier', 'Recherche de cantinier');
+
+-- --------------------------------------------------------
+
+--
 -- Structure de la table `candidat`
 --
 
@@ -39,17 +62,20 @@ CREATE TABLE IF NOT EXISTS `candidat` (
   `CP` int(11) NOT NULL,
   `urlCV` varchar(255) NOT NULL,
   `urlLettre` varchar(255) DEFAULT NULL,
-  `accepterPar` text,
+  `accepter` tinyint(1) DEFAULT NULL,
+  `idAnnonce` int(11) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8;
 
 --
 -- Déchargement des données de la table `candidat`
 --
 
-INSERT INTO `candidat` (`id`, `nom`, `prenom`, `mail`, `numTel`, `numEtRue`, `ville`, `CP`, `urlCV`, `urlLettre`, `accepterPar`) VALUES
-(1, 'Zebulon', 'thomas', 'thomas.lasselin@lycee-pardailhan.fr', '0785648256', '14 rue du chÃªne', 'auch', 32000, '', '', NULL),
-(2, 'Petermann', 'Aymerize', 'aymeri.petermann@gmail.com', '0786953562', '14 rue du chÃªne bis', 'pavie', 32550, '', '', NULL);
+INSERT INTO `candidat` (`id`, `nom`, `prenom`, `mail`, `numTel`, `numEtRue`, `ville`, `CP`, `urlCV`, `urlLettre`, `accepter`, `idAnnonce`) VALUES
+(1, 'Zebulon', 'thomas', 'thomas.lasselin@lycee-pardailhan.fr', '0785648256', '14 rue du chÃªne', 'auch', 32000, '', '', 0, 1),
+(2, 'ERB', 'EstÃ©ban', 'esteban@gmail.com', '0782231852', '136 rue nationale', 'Gimont', 32200, '.\\CV\\Rapport d\'activitÃ©.pdf', '.\\lettre\\Rapport d\'activitÃ©.pdf', NULL, 1),
+(3, 'ERB', 'EtÃ©ban', 'esteban@gmail.com', '0782231852', '136 rue nationale', 'Gimont', 32200, '.\\CV\\Compte rendu PPE3.pdf', '.\\lettre\\Rapport d\'activitÃ©.pdf', NULL, 2),
+(4, 'ERB', 'EtÃ©ban', 'esteban@gmail.com', '0782231852', '136 rue nationale', 'Gimont', 32200, '.\\CV\\Compte rendu PPE3.pdf', '.\\lettre\\Rapport d\'activitÃ©.pdf', NULL, 2);
 
 -- --------------------------------------------------------
 
